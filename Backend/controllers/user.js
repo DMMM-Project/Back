@@ -8,7 +8,7 @@ exports.signup = (req, res, next) => {
     });
     user.save()
         .then(() => {
-            User.findOne({ telephone: req.body.telephone })
+            User.findOne({ naissance: req.body.naissance, telephone: req.body.telephone })
                 .then(user => {
                     if (!user) {
                         return res.status(500).json({ error: 'Internal Server Error' });
@@ -24,12 +24,18 @@ exports.signup = (req, res, next) => {
                 })
                 .catch(error => res.status(500).json({ error }));
         })
-        .catch(error => res.status(400).json({ error }));
+        .catch(error => {
+            error.errors['telephone'] ? res.status(401).json({ error: 'Vous avez déjà créer un compte' }) :
+                res.status(400).json({ error });
+        });
 };
 
 exports.login = (req, res, next) => {
-    User.findOne({ prenom: req.body.prenom, nom: req.body.nom, telephone: req.body.telephone })
+    User.findOne({ naissance: req.body.naissance, telephone: req.body.telephone })
         .then(user => {
+            if (!user) {
+                return res.status(401).json({ error: 'Unauthorized' });
+            }
             return res.status(302).json({
                 message: 'Utilisateur trouvé !',
                 token: jwt.sign(

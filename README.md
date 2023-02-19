@@ -45,15 +45,3 @@ Pour lancer le projet vous devez avoir Node et effectuer ces commandes.
 
 Ce projet est complètement inutile si le `Frontend` n'est pas lancé et fonctionnel.
 Le stockage est local, fonctionnant sous **MongoDB**.
-
-#### API
-La communication avec l'API se fera sur le port `http://localhost:3000/api/` suivi de l'un des endpoints suivant :
-- `signup` (avec la méthode `Post`)
-- `login` (avec la méthode `Post`)
-- `products` (avec la méthode `Get`)
-- `survey` (avec la méthode `Get`)
-- `survey/my` (avec les méthodes `Post` et `Get`)
-
-Pour répondre au sondage, il faut être connecté, sinon vous serez redirigé vers la page de connexion.
-
-L'action de connection renvoie un token permet de répondre au sondage ou de voir les résultats du sondage auquel vous avez répondu. 

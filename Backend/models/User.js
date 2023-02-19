@@ -9,6 +9,8 @@ const userSchema = mongoose.Schema({
     code_postal: { type: Number, required: true },
     ville: { type: String, required: true },
     telephone: { type: String, required: true,unique: true }
+}, {
+    versionKey: false // You should be aware of the outcome after set to false
 });
 
 userSchema.plugin(uniqueValidator);
