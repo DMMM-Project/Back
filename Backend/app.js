@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 
 const userRoutes = require('./routes/user');
 const surveyRoutes = require('./routes/survey');
+
+mongoose.set("strictQuery", false);
 mongoose.connect('mongodb+srv://matteomoisant:kRi90qfu5fg4yKLu@cluster.dezlwa8.mongodb.net/DMMM-Project-BD?retryWrites=true&w=majority',
     { useNewUrlParser: true,
         useUnifiedTopology: true })

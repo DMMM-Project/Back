@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const User = require("../models/User");
 
 module.exports = (req, res, next) => {
     try {
@@ -8,7 +9,16 @@ module.exports = (req, res, next) => {
         req.auth = {
             userId: userId
         };
-        next();
+        User.findOne({ _id: userId})
+            .then(user => {
+                if (!user) {
+                    return res.status(401).json({error: 'Unauthorized'});
+                }
+                next();
+            })
+            .catch(error => {
+                res.status(500).json({error});
+            });
     } catch(error) {
         res.status(401).json({ error });
     }

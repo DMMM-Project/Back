@@ -1,19 +1,39 @@
 const Survey = require('../models/Survey');
 const User = require('../models/User');
 
+updateUser = (userId) => {
+    User.findOne({ _id: userId})
+        .then(user => {
+            user.survey = true;
+            user.save();
+        })
+        .catch(error => {
+            res.status(500).json({ error });
+        });
+}
+
 exports.createSurvey = (req, res, next) => {
     User.findOne({ _id: req.auth.userId})
-        .then(() => {
+        .then(user => {
             delete req.body._id;
             const survey = new Survey({
                 user_id: req.auth.userId,
                 aliments: req.body.aliments
             });
             survey.save()
-                .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
+                .then(() => {
+                    updateUser(req.auth.userId);
+                    res.status(201).json({ message: 'Objet enregistré !'});
+                })
                 .catch(error => {
-                    error.errors['user_id'] ? res.status(401).json({ error: 'Vous avez déjà répondu au sondage' }) :
-                        res.status(400).json({ error });
+                    main_Error = error;
+                    try {
+                        if (error.errors['user_id']){
+                            res.status(401).json({ error: 'Vous avez déjà répondu au sondage' });
+                        }
+                    } catch (error) {
+                        res.status(400).json({ main_Error });
+                    }
                 });
         })
         .catch( error => {
@@ -26,9 +46,10 @@ exports.getAllSurvey = (req, res, next) => {
         .then(survey => {
             surveys = [];
             survey.forEach(survey => {
-                surveys.push(survey.aliments);
+
+                surveys.push({ aliments : survey.aliments});
             })
-            res.status(200).json(surveys);
+            res.status(200).json({ surveys: surveys});
         })
         .catch(error => res.status(400).json({ error }));
 };
