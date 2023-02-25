@@ -27,7 +27,7 @@ exports.signup = (req, res, next) => {
             main_Error = error;
             try {
                 if (error.errors['telephone']){
-                    res.status(401).json({ error: 'Vous avez déjà créer un compte' });
+                    res.status(401).json({ error: 'Vous avez déjà créé un compte' });
                 }
             }catch (error) {
                 res.status(400).json({ main_Error });
