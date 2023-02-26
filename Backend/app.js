@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 
 const userRoutes = require('./routes/user');
 const surveyRoutes = require('./routes/survey');
+const categoryRoutes = require('./routes/category');
+const foodRoutes = require('./routes/food');
 
 mongoose.set("strictQuery", false);
 mongoose.connect('mongodb+srv://matteomoisant:kRi90qfu5fg4yKLu@cluster.dezlwa8.mongodb.net/DMMM-Project-BD?retryWrites=true&w=majority',
@@ -27,5 +29,7 @@ app.use(bodyParser.json());
 
 app.use('/api/auth', userRoutes);
 app.use('/api/survey', surveyRoutes);
+app.use('/api/categories', categoryRoutes);
+app.use('/api/food', foodRoutes);
 
 module.exports = app;

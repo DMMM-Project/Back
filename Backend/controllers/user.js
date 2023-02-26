@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
-
 const User = require('../models/User');
+
+//TODO: Faire en sorte qu'il n'y ai pas plusieurs réponses de l'api dans chaque fonction
 
 exports.signup = (req, res, next) => {
     const user = new User({
