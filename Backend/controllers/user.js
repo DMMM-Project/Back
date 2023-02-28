@@ -13,7 +13,7 @@ exports.signup = (req, res, next) => {
             User.findOne({ naissance: req.body.naissance, telephone: req.body.telephone })
                 .then(user => {
                     res.status(201).json({
-                        message: 'Utilisateur créé !',
+                        message: 'User created !',
                         survey: user.survey,
                         token: jwt.sign(
                             { userId: user._id },
@@ -25,10 +25,10 @@ exports.signup = (req, res, next) => {
                 .catch(error => res.status(500).json({ error }));
         })
         .catch(error => {
-            main_Error = error;
+            let main_Error = error;
             try {
                 if (error.errors['telephone']){
-                    res.status(401).json({ error: 'Vous avez déjà créé un compte' });
+                    res.status(401).json({ error: 'You have already created an account' });
                 }
             }catch (error) {
                 res.status(400).json({ main_Error });
@@ -40,7 +40,7 @@ exports.login = (req, res, next) => {
     User.findOne({ naissance: req.body.naissance, telephone: req.body.telephone })
         .then(user => {
             return res.status(302).json({
-                message: 'Utilisateur trouvé !',
+                message: 'User found!',
                 survey: user.survey,
                 token: jwt.sign(
                     { userId: user._id },

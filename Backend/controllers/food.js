@@ -8,7 +8,7 @@ exports.getFoodByCategories = (req, res, next) => {
             if (!food) {
                 return res.status(500).json({error: 'Internal Server Error'});
             }
-            foods = [];
+            let foods = [];
             food.forEach(food => {
                 foods.push({ alim_code: food.alim_code, alim_nom_fr: food.alim_nom_fr });
             })

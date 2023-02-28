@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
 //TODO: ajouter les autres champs
+
 const userSchema = mongoose.Schema({
     alim_code: { type: Number, required: true },
     alim_nom_fr: { type: String, required: true },

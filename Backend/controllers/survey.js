@@ -10,7 +10,7 @@ updateUser = (userId) => {
             user.save();
         })
         .catch(error => {
-            res.status(500).json({ error });
+            throw ({ error });
         });
 }
 
@@ -26,13 +26,13 @@ exports.createSurvey = (req, res, next) => {
             survey.save()
                 .then(() => {
                     updateUser(req.auth.userId);
-                    res.status(201).json({message: 'Objet enregistré !'});
+                    res.status(201).json({message: 'Survey saved !'});
                 })
                 .catch(error => {
-                    main_Error = error;
+                    let main_Error = error;
                     try {
                         if (error.errors['user_id']) {
-                            res.status(401).json({error: 'Vous avez déjà répondu au sondage'});
+                            res.status(401).json({error: 'You have already completed the survey'});
                         }
                     } catch (error) {
                         res.status(400).json({ main_Error });
@@ -48,7 +48,7 @@ exports.createSurvey = (req, res, next) => {
 exports.getAllSurvey = (req, res, next) => {
     Survey.find()
         .then(survey => {
-            surveys = [];
+            let surveys = [];
             survey.forEach(survey => {
 
                 surveys.push({ aliments : survey.aliments});
