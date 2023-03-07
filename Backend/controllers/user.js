@@ -1,8 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-//TODO: Faire en sorte qu'il n'y ai pas plusieurs réponses de l'api dans chaque fonction
-
 exports.signup = (req, res, next) => {
     const user = new User({
         ...req.body,
@@ -12,7 +10,7 @@ exports.signup = (req, res, next) => {
         .then(() => {
             User.findOne({ naissance: req.body.naissance, telephone: req.body.telephone })
                 .then(user => {
-                    res.status(201).json({
+                    return res.status(201).json({
                         message: 'User created !',
                         survey: user.survey,
                         token: jwt.sign(
@@ -22,16 +20,16 @@ exports.signup = (req, res, next) => {
                         )
                     });
                 })
-                .catch(error => res.status(500).json({ error }));
+                .catch(error => { return res.status(500).json({ error }); });
         })
         .catch(error => {
             let main_Error = error;
             try {
                 if (error.errors['telephone']){
-                    res.status(401).json({ error: 'You have already created an account' });
+                    return res.status(401).json({ error: 'You have already created an account' });
                 }
             }catch (error) {
-                res.status(400).json({ main_Error });
+                return res.status(400).json({ main_Error });
             }
         });
 };
@@ -49,5 +47,5 @@ exports.login = (req, res, next) => {
                 )
             });
         })
-        .catch(error => res.status(500).json({ error }));
+        .catch(error => { return res.status(500).json({ error }); });
 };

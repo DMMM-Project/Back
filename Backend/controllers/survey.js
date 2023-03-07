@@ -1,8 +1,6 @@
 const Survey = require('../models/Survey');
 const User = require('../models/User');
 
-//TODO: Faire en sorte qu'il n'y ai pas plusieurs réponses de l'api dans chaque fonction
-
 updateUser = (userId) => {
     User.findOne({ _id: userId})
         .then(user => {
@@ -26,22 +24,22 @@ exports.createSurvey = (req, res, next) => {
             survey.save()
                 .then(() => {
                     updateUser(req.auth.userId);
-                    res.status(201).json({message: 'Survey saved !'});
+                    return res.status(201).json({message: 'Survey saved !'});
                 })
                 .catch(error => {
                     let main_Error = error;
                     try {
                         if (error.errors['user_id']) {
-                            res.status(401).json({error: 'You have already completed the survey'});
+                            return res.status(401).json({error: 'You have already completed the survey !'});
                         }
                     } catch (error) {
-                        res.status(400).json({ main_Error });
+                        return res.status(400).json({ main_Error });
                     }
                 });
 
         })
         .catch( error => {
-            res.status(500).json({ error });
+            return res.status(500).json({ error });
         })
 };
 
@@ -50,20 +48,19 @@ exports.getAllSurvey = (req, res, next) => {
         .then(survey => {
             let surveys = [];
             survey.forEach(survey => {
-
                 surveys.push({ aliments : survey.aliments});
             })
-            res.status(200).json({ surveys: surveys});
+            return res.status(200).json({ surveys: surveys});
         })
-        .catch(error => res.status(400).json({ error }));
+        .catch(error => { return res.status(400).json({ error }); });
 };
 
 exports.getMySurvey = (req, res, next) => {
     Survey.findOne({ user_id: req.auth.userId})
         .then(survey => {
-            res.status(200).json({ aliments: survey.aliments});
+            return res.status(200).json({ aliments: survey.aliments});
         })
         .catch( error => {
-            res.status(500).json({ error });
+            return res.status(500).json({ error });
         });
 };
