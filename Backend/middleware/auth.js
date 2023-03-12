@@ -20,6 +20,6 @@ module.exports = (req, res, next) => {
                 return res.status(500).json({error});
             });
     } catch(error) {
-        return res.status(401).json({ error });
+        return res.status(401).json({ error: 'Unauthorized' });
     }
 };

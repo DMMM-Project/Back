@@ -45,3 +45,5 @@ Pour lancer le projet vous devez avoir Node et effectuer ces commandes.
 
 Ce projet est complètement inutile si le `Frontend` n'est pas lancé et fonctionnel.
 Le stockage est local, fonctionnant sous **MongoDB**.
+
+Pour utiliser l'API, voir [API Documentation](API Documentation/API Documentation.md).
