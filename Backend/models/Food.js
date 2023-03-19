@@ -18,7 +18,8 @@ const userSchema = mongoose.Schema({
     "Fibres (g/100g)" : { type: Number, required: true },
     "Protéines (g/100g)" : { type: Number, required: true },
     "Eau (g/100 g)__1" : { type: Number, required: true },
-    NutriScore : { type: Number, required: true }
+    NutriScore : { type: Number, required: true },
+    "NutriScore Calculé" : { type: String, required: true }
 }, {
     versionKey: false // You should be aware of the outcome after set to false
 });
