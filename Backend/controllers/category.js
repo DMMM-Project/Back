@@ -19,7 +19,7 @@ exports.getAllSubCategories = (req, res, next) => {
         .then(category => {
             let categories = [];
             category.forEach(category => {
-                if(category.alim_ssgrp_code >= 0 && category.alim_ssgrp_code > req.body.alim_grp_code * 100 && category.alim_ssgrp_code < (req.body.alim_grp_code + 1) * 100){
+                if(category.alim_ssgrp_code >= 0 && category.alim_ssgrp_code > Number(req.query.alim_grp_code) * 100 && category.alim_ssgrp_code < (Number(req.query.alim_grp_code) + 1) * 100){
                     categories.push({ alim_grp_code : category.alim_ssgrp_code, alim_grp_nom_fr : category.alim_ssgrp_nom_fr});
                 }
             })
@@ -33,7 +33,7 @@ exports.getAllSubSubCategories = (req, res, next) => {
         .then(category => {
             let categories = [];
             category.forEach(category => {
-                if(category.alim_ssssgrp_code >= 0 && category.alim_ssssgrp_code > req.body.alim_grp_code * 100 && category.alim_ssssgrp_code < (req.body.alim_grp_code + 1) * 100){
+                if(category.alim_ssssgrp_code >= 0 && category.alim_ssssgrp_code > Number(req.query.alim_grp_code) * 100 && category.alim_ssssgrp_code < (Number(req.query.alim_grp_code) + 1) * 100){
                     categories.push({ alim_grp_code : category.alim_ssssgrp_code, alim_grp_nom_fr : category.alim_ssssgrp_nom_fr});
                 }
             })

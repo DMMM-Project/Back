@@ -1,7 +1,7 @@
 const Food = require('../models/Food');
 
 exports.getFoodByCategories = (req, res, next) => {
-    Food.find({ alim_grp_nom_fr: req.body.alim_grp_nom_fr, alim_ssgrp_nom_fr: req.body.alim_ssgrp_nom_fr, alim_ssssgrp_nom_fr: req.body.alim_ssssgrp_nom_fr })
+    Food.find({ alim_ssgrp_code: req.query.alim_ssgrp_code, alim_ssssgrp_code: req.query.alim_ssssgrp_code })
         .then(food => {
             if (!food) {
                 return res.status(500).json({error: 'Internal Server Error'});
@@ -17,21 +17,8 @@ exports.getFoodByCategories = (req, res, next) => {
         });
 };
 
-exports.getFoodByName = (req, res, next) => {
-    Food.findOne({ alim_nom_fr: req.body.alim_nom_fr })
-        .then(food => {
-            if (!food) {
-                return res.status(500).json({error: 'Internal Server Error'});
-            }
-            return res.status(200).json({ food: food});
-        })
-        .catch( error => {
-            return res.status(500).json({ error });
-        });
-};
-
 exports.getFoodById = (req, res, next) => {
-    Food.findOne({ alim_code: req.body.alim_code })
+    Food.findOne({ alim_code: req.query.alim_code })
         .then(food => {
             if (!food) {
                 return res.status(500).json({error: 'Internal Server Error'});
