@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require("../models/User");
+const MessageJson = require('../models/MessageJson');
 
 module.exports = (req, res, next) => {
     try {
@@ -12,14 +13,14 @@ module.exports = (req, res, next) => {
         User.findOne({ _id: userId})
             .then(user => {
                 if (!user) {
-                    return res.status(401).json({error: 'Unauthorized'});
+                    return res.status(401).json(MessageJson.makeMessageJson(null, null, 'Unauthorized'));
                 }
                 next();
             })
             .catch(error => {
-                return res.status(500).json({error});
+                return res.status(500).json(MessageJson.makeMessageJson(null, null, error));
             });
     } catch(error) {
-        return res.status(401).json({ error: 'Unauthorized' });
+        return res.status(401).json(MessageJson.makeMessageJson(null, null, 'Unauthorized'));
     }
 };

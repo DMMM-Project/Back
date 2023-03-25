@@ -1,4 +1,5 @@
 const Food = require("../models/Food");
+const MessageJson = require('../models/MessageJson');
 
 module.exports = (req, res, next) => {
     let good;
@@ -15,11 +16,11 @@ module.exports = (req, res, next) => {
                     if (array.length - 1 === index && good) {
                         next();
                     } else if (array.length - 1 === index && !good) {
-                        return res.status(500).json({ error: 'Internal Server Error', context: 'Food not found' });
+                        return res.status(500).json(MessageJson.makeMessageJson('Food not found', null, 'Internal Server Error'));
                     }
                 });
         });
     } catch (error) {
-        res.status(401).json({ error });
+        res.status(401).json(MessageJson.makeMessageJson(null, null, error));
     }
 };

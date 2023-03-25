@@ -1,5 +1,6 @@
 const Survey = require('../models/Survey');
 const User = require('../models/User');
+const MessageJson = require('../models/MessageJson');
 
 updateUser = (userId) => {
     User.findOne({ _id: userId})
@@ -24,22 +25,21 @@ exports.createSurvey = (req, res, next) => {
             survey.save()
                 .then(() => {
                     updateUser(req.auth.userId);
-                    return res.status(201).json({message: 'Survey saved !'});
+                    return res.status(201).json(MessageJson.makeMessageJson('Survey saved !',null,null));
                 })
                 .catch(error => {
-                    let main_Error = error;
                     try {
                         if (error.errors['user_id']) {
-                            return res.status(401).json({error: 'You have already completed the survey !'});
+                            return res.status(401).json(MessageJson.makeMessageJson(null, null, 'You have already completed the survey !'));
                         }
                     } catch (error) {
-                        return res.status(400).json({ main_Error });
+                        return res.status(400).json(MessageJson.makeMessageJson(null, null, error));
                     }
                 });
 
         })
         .catch( error => {
-            return res.status(500).json({ error });
+            return res.status(500).json(MessageJson.makeMessageJson(null, null, error));
         })
 };
 
@@ -50,17 +50,17 @@ exports.getAllSurvey = (req, res, next) => {
             survey.forEach(survey => {
                 surveys.push({ aliments : survey.aliments});
             })
-            return res.status(200).json({ surveys: surveys});
+            return res.status(200).json(MessageJson.makeMessageJson(null, { surveys: surveys}, null));
         })
-        .catch(error => { return res.status(400).json({ error }); });
+        .catch(error => { return res.status(400).json(MessageJson.makeMessageJson(null, null, error)); });
 };
 
 exports.getMySurvey = (req, res, next) => {
     Survey.findOne({ user_id: req.auth.userId})
         .then(survey => {
-            return res.status(200).json({ aliments: survey.aliments});
+            return res.status(200).json(MessageJson.makeMessageJson(null, { aliments: survey.aliments}, null));
         })
         .catch( error => {
-            return res.status(500).json({ error });
+            return res.status(500).json(MessageJson.makeMessageJson(null, null, error));
         });
 };
