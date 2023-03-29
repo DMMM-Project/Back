@@ -40,6 +40,8 @@ exports.signup = (req, res, next) => {
 exports.login = (req, res, next) => {
     User.findOne({ naissance: req.body.naissance, telephone: req.body.telephone })
         .then(user => {
+            if(!user)
+                return res.status(401).json(MessageJson.makeMessageJson(null, null, 'User not found!'));
             return res.status(302).json(MessageJson.makeMessageJson(
                 'User found!',
                 {
