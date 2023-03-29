@@ -2,7 +2,7 @@
 
 ### Présentation 
 
-Ce projet a été fait pour faire fonctionner le repository `Frontend`, il permet de charger les actualités et de les rechercher par rapport à leurs tag.
+Ce projet a été fait pour faire fonctionner le repository `Frontend`, il permet de pouvoir faire fonctionner le site.
 
 C'est un projet purement éducatif fait par des élèves de l'IUT de paris rives-de-seine.
 
