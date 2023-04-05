@@ -30,3 +30,20 @@ exports.getFoodById = (req, res, next) => {
             return res.status(500).json(MessageJson.makeMessageJson(null, null, error));
         });
 };
+
+exports.getAllFood = (req, res, next) => {
+    Food.find()
+        .then(food => {
+            if (!food) {
+                return res.status(500).json(MessageJson.makeMessageJson(null, null, 'Internal Server Error'));
+            }
+            let foods = [];
+            food.forEach(food => {
+                foods.push({ alim_code: food.alim_code, alim_nom_fr: food.alim_nom_fr });
+            })
+            return res.status(200).json(MessageJson.makeMessageJson(null, { foods: foods}, null));
+        })
+        .catch( error => {
+            return res.status(500).json(MessageJson.makeMessageJson(null, null, error));
+        });
+};
