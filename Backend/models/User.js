@@ -8,8 +8,9 @@ const userSchema = mongoose.Schema({
     adresse: { type: String, required: true },
     code_postal: { type: Number, required: true },
     ville: { type: String, required: true },
-    telephone: { type: String, required: true,unique: true },
-    survey: { type: Boolean, required: true, default: false }
+    telephone: { type: String, required: true, unique: true },
+    survey: { type: Boolean, required: true, default: false },
+    password: { type: String, required: true }
 }, {
     versionKey: false // You should be aware of the outcome after set to false
 });
