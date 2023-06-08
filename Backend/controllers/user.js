@@ -14,11 +14,12 @@ exports.signup = (req, res, next) => {
             });
             user.save()
                 .then(() => {
-                    User.findOne({ naissance: req.body.naissance, telephone: req.body.telephone })
+                    User.findOne({ telephone: req.body.telephone })
                         .then(user => {
                             return res.status(201).json(MessageJson.makeMessageJson(
                                 'User created !',
                                 {
+                                    username: user.prenom,
                                     survey: user.survey,
                                     token: jwt.sign(
                                         { userId: user._id },
@@ -31,13 +32,13 @@ exports.signup = (req, res, next) => {
                         })
                         .catch(error => { return res.status(500).json(MessageJson.makeMessageJson(null, null, error)); });
                 })
-                .catch(error => {
+                .catch(mainerror => {
                     try {
-                        if (error.errors['telephone']){
+                        if (mainerror.errors['telephone']){
                             return res.status(401).json(MessageJson.makeMessageJson( null, null, 'You have already created an account'));
                         }
                     }catch (error) {
-                        return res.status(500).json(MessageJson.makeMessageJson(null, null, error));
+                        return res.status(500).json(MessageJson.makeMessageJson(null, null, mainerror));
                     }
                 });
         })
@@ -53,11 +54,12 @@ exports.login = (req, res, next) => {
             bcrypt.compare(req.body.password, user.password)
                 .then(valid => {
                     if (!valid) {
-                        return res.status(401).json({ message: 'Paire login/mot de passe incorrecte' });
+                        return res.status(401).json(MessageJson.makeMessageJson(null, null, 'Paire login/mot de passe incorrecte'));
                     }
                     return res.status(302).json(MessageJson.makeMessageJson(
                         'User found!',
                         {
+                            username: user.prenom,
                             survey: user.survey,
                             token: jwt.sign(
                                 { userId: user._id },
@@ -70,6 +72,21 @@ exports.login = (req, res, next) => {
                 })
                 .catch(error => res.status(500).json({ error }));
 
+        })
+        .catch(error => { return res.status(500).json(MessageJson.makeMessageJson(null, null, error)); });
+};
+
+exports.verify = (req, res, next) => {
+    User.findOne({ _id: req.auth.userId })
+        .then(user => {
+            return res.status(302).json(MessageJson.makeMessageJson(
+                'User found!',
+                {
+                    username: user.prenom,
+                    survey: user.survey
+                },
+                null)
+            );
         })
         .catch(error => { return res.status(500).json(MessageJson.makeMessageJson(null, null, error)); });
 };
