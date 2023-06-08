@@ -61,6 +61,9 @@ exports.getMySurvey = (req, res, next) => {
             return res.status(200).json(MessageJson.makeMessageJson(null, { aliments: survey.aliments}, null));
         })
         .catch( error => {
+            if(error.message === "Cannot read properties of null (reading 'aliments')") {
+                return res.status(401).json(MessageJson.makeMessageJson(null, null, 'You have not completed the survey !'));
+            }
             return res.status(500).json(MessageJson.makeMessageJson(null, null, error));
         });
 };
