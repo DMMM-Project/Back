@@ -32,4 +32,32 @@ app.use('/api/survey', surveyRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/food', foodRoutes);
 
+
+const pathFront = __dirname.replace('Backend', 'Frontend');
+
+// Static Files
+app.use(express.static('public'));
+// Specific folder example
+app.use('/css', express.static(pathFront + '/public/css'))
+app.use('/js', express.static(pathFront + '/public/js'))
+app.use('/img', express.static(pathFront + '/public/img'))
+
+// Set View’s
+app.set('views', pathFront + '/views');
+
+// Navigation
+app.get('', (req, res) => {
+    res.sendFile(pathFront + '/views/index.html')
+})
+
+app.get('/survey', (req, res) => {
+    res.sendFile(pathFront + '/views/survey.html')
+})
+
+app.get('/results', (req, res) => {
+    res.sendFile(pathFront + '/views/results.html')
+})
+
+
+
 module.exports = app;
