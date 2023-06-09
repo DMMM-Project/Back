@@ -29,21 +29,14 @@ Pour lancer le projet vous devez avoir Node et effectuer ces commandes.
    `npm install jsonwebtoken`
    
 7. Pour lancer le server
-   `nodemon server`
+   `npm start`
 
 #### Frontend directory
-1. Installer les dépendances
-   `npm install`
-   
-2. Lancer le projet en mode développeur
-   `npm run start`
-
-3. Aller sur le site, hébergé en local
-   `http://localhost:4200`
+1. Aller sur le site (page d'acceuil) lorsque le serveur est lancé
+   `http://127.0.0.1:3000`
 
 ### Informations complémentaires
 
-Ce projet est complètement inutile si le `Frontend` n'est pas lancé et fonctionnel.
 Le stockage est local, fonctionnant sous **MongoDB**.
 
 Pour utiliser l'API, voir [API Documentation](API Documentation/API Documentation.md).

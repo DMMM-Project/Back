@@ -5,8 +5,11 @@
 La communication avec l'API se fera sur le port `http://localhost:3000/api/` suivi de l'un des endpoints suivant :
 - [`signup`](./Signup-Login.md) (avec la méthode `Post`)
 - [`login`](./Signup-Login.md) (avec la méthode `Post`)
+- [`verify`](./Signup-Login.md) (avec la méthode `Post`)
 - [`survey`](./Survey.md) (avec la méthode `Get`)
 - [`survey/my`](./Survey.md) (avec les méthodes `Post` et `Get`)
+- [`food`](./Food.md) (avec la méthode `Get`)
+- [`food/id`](./Food.md) (avec les méthodes `Get`)
 - [`food/categories`](./Food.md) (avec la méthode `Get`)
 - [`categories`](./Category.md) : (avec la méthode `Get`)
 - [`categories/subcategories`](./Category.md) : (avec la méthode `Get`)
