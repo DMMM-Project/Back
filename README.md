@@ -39,4 +39,4 @@ Pour lancer le projet vous devez avoir Node et effectuer ces commandes.
 
 Le stockage est local, fonctionnant sous **MongoDB**.
 
-Pour utiliser l'API, voir [API Documentation](API%20Documentation/API Documentation.md).
+Pour utiliser l'API, voir [API Documentation](API Documentation/API Documentation.md).
