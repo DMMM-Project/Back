@@ -27,8 +27,11 @@ Pour lancer le projet vous devez avoir Node et effectuer ces commandes.
 
 6. Pour ajouter jsonwebtoken
    `npm install jsonwebtoken`
+
+7. Pour ajouter bcrypt
+   `npm install bcrypt`
    
-7. Pour lancer le server
+9. Pour lancer le server
    `npm start`
 
 #### Frontend directory
