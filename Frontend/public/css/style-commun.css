@@ -38,18 +38,19 @@ body {
   -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-} 
+}
 
 .overlay {
   position: fixed; /* Sit on top of the page content */
   display: none; /* Hidden by default */
-  width: 100%; 
+  width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
   z-index: 2;
   cursor: pointer;
 }
@@ -103,7 +104,7 @@ body {
   cursor: pointer;
   text-align: center;
   margin: 0 auto;
-  width: 60px;
+  width: 120px;
   height: 20px;
   color: #180148;
   background-color: #FFB4F4;
@@ -189,7 +190,7 @@ body {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-.container .container-form .btn {   
+.container .container-form .btn {
   box-shadow: 0 6px #A697FF;
   margin-top: 30px;
   display: block;
@@ -301,7 +302,7 @@ input:invalid {
 button {
   font-family: "Roboto", sans-serif;
   font-size: medium;
-  width: 90px !important;
+  width: 140px !important;
   height: 40px !important;
 }
 
@@ -318,6 +319,15 @@ button {
 .topnav {
   overflow: hidden;
   background-color: rgba(19, 35, 47, 0.9);
+}
+
+.navbar .menu-hamburger
+{
+  display: none;
+  position: absolute;
+  top: 35px;
+  right: 50px;
+  width: 35px;
 }
 
 .topnav .nav-item {
@@ -347,7 +357,7 @@ button {
   min-width: 160px;
   width: fit-content;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  
+
   z-index: 1;
 }
 
@@ -374,4 +384,53 @@ button {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+@media screen and (max-width: 900px)
+{
+  .overlay{
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+
+  .container {
+    display: table;
+    width: 50%;
+    height: 50%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+  }
+
+  .navbar .menu-hamburger{
+    display: block;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    top: 35.5%;
+    right: 20%;
+    min-width: 160px;
+    width: fit-content;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+
+  .topnav{
+    display: flex;
+    width: 100%;
+    height: 0%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: -100%;
+  }
+
+  .topnav.mobile-menu{
+    margin-left: 0;
+    height: 100vh;
+  }
+
+  .container.log-in .container-form
+  {
+    left: 0px;
+  }
 }

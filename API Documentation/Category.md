@@ -6,9 +6,9 @@ Pour toutes les requêtes qui seront ici, il faut envoyer le token dans le heade
 
 - `categories` : Retourne la liste de toutes les catégories de la base de données.
 - `categories/subcategories` : Retourne les sous-catégorie correspondant à l'id de la catégorie passé en paramètre. </br>
-  (ex : `http://localhost:3000/api/categories/subcategories?alim_grp_code=3`)
+  (ex : `https://localhost:8443/api/categories/subcategories?alim_grp_code=3`)
 - `categories/subcategories` : Retourne les sous-sous-catégorie correspondant à l'id de la sous-catégorie passé en paramètre. </br>
-  (ex : `http://localhost:3000/api/categories/subsubcategories?alim_grp_code=301`)
+  (ex : `https://localhost:8443/api/categories/subsubcategories?alim_grp_code=301`)
 
 ## Méthodes `Get` :
 

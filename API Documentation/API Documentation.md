@@ -2,7 +2,7 @@
 
 ## Présentation 
 
-La communication avec l'API se fera sur le port `http://localhost:3000/api/` suivi de l'un des endpoints suivant :
+La communication avec l'API se fera sur le port `https://localhost:8443/api/` suivi de l'un des endpoints suivant :
 - [`signup`](./Signup-Login.md) (avec la méthode `Post`)
 - [`login`](./Signup-Login.md) (avec la méthode `Post`)
 - [`verify`](./Signup-Login.md) (avec la méthode `Post`)

@@ -1,5 +1,18 @@
+//*******************************
+// REDIRECTION
 const http = require('http');
+
+const serverRedirection = http.createServer((req, res) => {
+    res.writeHead(301,{Location: `https://${req.headers.host.replace("8080", "8443")}${req.url}`});
+    res.end();
+});
+
+
+//*******************************
+// SERVER HTTPS
+const https = require('https');
 const app = require('./app');
+const fs = require("fs");
 
 const normalizePort = val => {
     const port = parseInt(val, 10);
@@ -12,7 +25,7 @@ const normalizePort = val => {
     }
     return false;
 };
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '8443');
 app.set('port', port);
 
 const errorHandler = error => {
@@ -35,7 +48,17 @@ const errorHandler = error => {
     }
 };
 
-const server = http.createServer(app);
+const server = https.createServer(
+    {
+        key: fs.readFileSync("cert/key.pem", "utf8"),
+        cert: fs.readFileSync("cert/cert.pem", "utf8"),
+    },
+    app
+);
+
+
+//*******************************
+// Listen
 
 server.on('error', errorHandler);
 server.on('listening', () => {
@@ -45,3 +68,12 @@ server.on('listening', () => {
 });
 
 server.listen(port);
+
+
+serverRedirection.on('error', errorHandler);
+serverRedirection.on('listening', () => {
+    const address = server.address();
+    const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + 8080;
+    console.log('Listening on ' + bind);
+});
+serverRedirection.listen(8080);

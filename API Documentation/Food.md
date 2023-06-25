@@ -6,9 +6,9 @@ Pour toutes les requêtes qui seront ici, il faut envoyer le token dans le heade
 
 - `food` : Retourne la liste de tous les aliments de la base de données.
 - `food/id` : Retourne l'aliment correspondant à l'id passé en paramètre. </br>
-  (ex : `http://localhost:3000/api/food/id?alim_code=4041`)
+  (ex : `https://localhost:8443/api/food/id?alim_code=4041`)
 - `food/categories` : Retourne la liste des aliments pour les catégories passées en paramètre. </br>
-  (ex : `http://localhost:3000/api/food/categories?alim_ssssgrp_code=10301&alim_ssgrp_code=103`)
+  (ex : `https://localhost:8443/api/food/categories?alim_ssssgrp_code=10301&alim_ssgrp_code=103`)
 
 ## Méthodes `Get` :
 

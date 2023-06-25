@@ -8,35 +8,38 @@
 </head>
 <body>
 
-  <div class="topnav">
-    <div class="dropdown">
-        <a class="active nav-item user">Connexion</a>
-        <div class="dropdown-content">
-            <a class="dropdown-option login hidden">Login</a>
-            <a class="dropdown-option logout hidden">Log Out</a>   
-        </div>        
-    </div>
-    
-    <a class="nav-item survey">Survey</a>
-    <a class="nav-item results">Results</a>
+    <nav class="navbar">
+        <div class="topnav">
+            <div class="dropdown">
+                <a class="active nav-item user">Connexion</a>
+                <div class="dropdown-content">
+                    <a class="dropdown-option login hidden">Se connecter</a>
+                    <a class="dropdown-option logout hidden">Se déconnecter</a>
+                </div>
+            </div>
 
-    <a class="nav-item left home">The Best Survey</a>
-  </div>
+            <a class="nav-item survey">Sondage</a>
+            <a class="nav-item results">Résultats</a>
 
-  <div class="overlay">
-    <button class="close btn">Close</button>
-    <div class="container">
-        <div class="box"></div>
+            <a class="nav-item left home">The Best Survey</a>
+        </div>
+        <img src="img/menu-btn.png" alt="menu hamburger" class="menu-hamburger">
+    </nav>
+
+    <div class="overlay">
+        <button class="close btn">Fermer</button>
+        <div class="container">
+            <div class="box"></div>
             <div class="container-forms">
                 <div class="container-info">
                     <div class="info-item">
                         <div class="table">
                             <div class="table-cell">
                                 <p>
-                                    Have an account?
+                                    Déjà inscrit ?
                                 </p>
                                 <div class="btn">
-                                    Log in
+                                    Se connecter
                                 </div>
                             </div>
                         </div>
@@ -45,10 +48,10 @@
                         <div class="table">
                             <div class="table-cell">
                                 <p>
-                                    Don't have an account? 
+                                    Pas encore inscrit ?
                                 </p>
                                 <div class="btn">
-                                    Sign up
+                                    S'inscrire
                                 </div>
                             </div>
                         </div>
@@ -59,11 +62,11 @@
                         <div class="table">
                             <div class="table-cell">
                                 <input name="telephone" placeholder="Téléphone" type="tel" pattern="0[0-9]([ ]{0,1}[0-9]{2}){4}" required/>
-                                <input name="password" placeholder="Mot de passe" type="Password" required/>  
-                                <button class="btn validate log-in" type="button">Log in</button>
+                                <input name="password" placeholder="Mot de passe" type="Password" required/>
+                                <button class="btn validate log-in" type="button">Se connecter</button>
                             </div>
                         </div>
-                    </form>      
+                    </form>
                     <form class="form-item sign-up">
                         <div class="table">
                             <div class="table-cell">
@@ -72,7 +75,7 @@
                                     <input name="nom" placeholder="Nom" type="text" required/>
                                     <input name="prenom" placeholder="Prénom" type="text" required/>
                                     <input name="password" placeholder="Mot de passe" type="Password" required/>
-                                    <button class="btn" type="button">Continue</button>
+                                    <button class="btn" type="button">Continuer</button>
                                 </div>
                                 <div class="last">
                                     <input name="naissance" placeholder="Date de naissance" type="date" required/>
@@ -81,9 +84,9 @@
                                     <input name="code_postal" placeholder="Code-postal" type="number" min ="10000" max="99999"  required/>
                                     <div class="btns">
                                         <button class="btn back" type="button">Back</button>
-                                        <button class="btn validate sign-up" type="button">Sign up</button>
-                                    </div>              
-                                </div>            
+                                        <button class="btn validate sign-up" type="button">S'inscrire</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -91,69 +94,70 @@
             </div>
         </div>
     </div>
-  </div>
-
-
-
-
-
-  <div class="container-tools">
-    <div class="forms">
-      <div class="formCategory">
-        <h1>Add product by category</h1>
-        <div class = "cell">
-          <label for="categories">Category</label>
-          <select name="categories" id="categories">
-            <option value="Select">Select a category</option>
-          </select>
-        </div>
-        <div class = "cell">
-          <label for="subCategories">subCategories</label>
-          <select name="subCategories" id="subCategories">
-            <option value="Select">Select a subCategories</option>
-          </select>
-        </div>
-        <div class = "cell">
-          <label for="subSubCategories">subSubCategories</label>
-          <select name="subSubCategories" id="subSubCategories">
-            <option value="Select">Select a subSubCategories</option>
-          </select>
-        </div>
-        <div class="cell">
-          <label for="name">Product name</label>
-          <select name="productName" id="productName">
-            <option value="Select">Select a product name</option>
-          </select>        
-        </div>
-        <div class="cell">
-          <button type="button" class="btn add-category">Add</button>
-        </div>
-      </div>
-      <div class="formSearch">
-        <h1>Add product by search</h1>
-        <div class="container-search">
-          <div class="search-items">
-            <input type="search" id="site-search" name="q" list="foods-container"  placeholder="Search food">
-            <div class="select-dropdown-container" style="width: 90%; background-color: aquamarine;" data-popper-placement="bottom-start">
-              <div tabindex="0" class="select-dropdown">
-                  <div class="select-options-wrapper" style="max-height: 190px; overflow-y: auto;">
-                      <div class="select-dropdown-menu-inner"></div>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn add-search">Add</button>
-        </div>        
-      </div>
     </div>
-    <div class="list">
-      <h1>Your products</h1>
-    </div>   
-  </div>
-  <div class="submit">
-    <h1>Submit your survey</h1>
-    <button type="button" class="btn post">Submit</button>
-  </div>
+
+
+
+
+
+    <div class="container-tools">
+        <div class="forms">
+            <div class="formCategory">
+                <h1>Ajouter un produit par catégorie</h1>
+                <div class = "cell">
+                    <label for="categories">Catégorie</label>
+                    <select name="categories" id="categories">
+                        <option value="Select">Sélectionnez une catégorie</option>
+                    </select>
+                </div>
+                <div class = "cell">
+                    <label for="subCategories">Sous-catégorie</label>
+                    <select name="subCategories" id="subCategories">
+                        <option value="Select">Sélectionnez une sous-catégorie</option>
+                    </select>
+                </div>
+                <div class = "cell">
+                    <label for="subSubCategories">Sous-sous-catégorie</label>
+                    <select name="subSubCategories" id="subSubCategories">
+                        <option value="Select">Sélectionnez une sous-sous-catégorie</option>
+                    </select>
+                </div>
+                <div class="cell">
+                    <label for="name">Nom du produit</label>
+                    <select name="productName" id="productName">
+                        <option value="Select">Sélectionnez le produit</option>
+                    </select>
+                </div>
+                <div class="cell">
+                    <button type="button" class="btn add-category">Ajouter</button>
+                </div>
+            </div>
+            <div class="formSearch">
+                <h1>Rechercher un produit</h1>
+                <div class="container-search">
+                    <div class="search-items">
+                        <input type="search" id="site-search" name="q" list="foods-container"  placeholder="Search food">
+                        <div class="select-dropdown-container" style="width: 90%; background-color: aquamarine;" data-popper-placement="bottom-start">
+                            <div tabindex="0" class="select-dropdown">
+                                <div class="select-options-wrapper" style="max-height: 190px; overflow-y: auto;">
+                                    <div class="select-dropdown-menu-inner"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn add-search">Ajouter</button>
+                </div>
+            </div>
+        </div>
+        <div class="list">
+            <h1>Vos produits</h1>
+        </div>
+    </div>
+    <div class="submit">
+        <h1>Envoyer vos réponses</h1>
+        <button type="button" class="btn post">Envoyer</button>
+    </div>
+
   <script src="js/commun.js"></script>
   <script src="js/survey.js"></script>
 </body>

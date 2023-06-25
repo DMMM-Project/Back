@@ -1,5 +1,5 @@
-const BASE_URL = "http://127.0.0.1:3000/api";
-const BASE_URL_FRONT = "http://127.0.0.1:3000";
+const BASE_URL = "https://192.168.1.105:8443/api";
+const BASE_URL_FRONT = "https://192.168.1.105:8443";
 const login = 0;
 const signup = 1;
 
@@ -146,6 +146,12 @@ document.querySelector('.home').addEventListener('click', (event) => {
   goToPage("");
 });
 
+const menuHamburger = document.querySelector(".menu-hamburger")
+const topNav = document.querySelector(".topnav")
+
+menuHamburger.addEventListener('click',()=>{
+  topNav.classList.toggle('mobile-menu')
+})
 
 /********************************* Results display *********************************/
 
