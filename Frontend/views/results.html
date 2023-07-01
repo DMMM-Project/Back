@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="css/style-result.css" />
   <link rel="stylesheet" href="css/style-commun.css">
-  <title>Survey results</title>
+  <title>Résultats</title>
 </head>
 <body>
 
@@ -15,15 +15,15 @@
           <div class="dropdown">
               <a class="active nav-item user">Connexion</a>
               <div class="dropdown-content">
-                  <a class="dropdown-option login hidden">Login</a>
-                  <a class="dropdown-option logout hidden">Log Out</a>
+                  <a class="dropdown-option login hidden">Se connecter</a>
+                  <a class="dropdown-option logout hidden">Se déconnecter</a>
               </div>
           </div>
 
-          <a class="nav-item survey">Survey</a>
-          <a class="nav-item results">Results</a>
+          <a class="nav-item survey">Sondage</a>
+          <a class="nav-item results">Résultats</a>
 
-          <a class="nav-item left home">The Best Survey</a>
+          <a class="nav-item left home">ChouMax</a>
       </div>
       <img src="img/menu-btn.png" alt="menu hamburger" class="menu-hamburger">
   </nav>
@@ -31,85 +31,84 @@
   <!------------------------- The signup login form ------------------------->
 
   <div class="overlay">
-    <button class="close btn">Close</button>
-    <div class="container">
-        <div class="box"></div>
-            <div class="container-forms">
-                <div class="container-info">
-                    <div class="info-item">
-                        <div class="table">
-                            <div class="table-cell">
-                                <p>
-                                    Have an account?
-                                </p>
-                                <div class="btn">
-                                    Log in
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="table">
-                            <div class="table-cell">
-                                <p>
-                                    Don't have an account? 
-                                </p>
-                                <div class="btn">
-                                    Sign up
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-form">
-                    <form class="form-item log-in">
-                        <div class="table">
-                            <div class="table-cell">
-                                <input name="telephone" placeholder="Téléphone" type="tel" pattern="0[0-9]([ ]{0,1}[0-9]{2}){4}" required/>
-                                <input name="password" placeholder="Mot de passe" type="Password" required/>  
-                                <button class="btn validate log-in" type="button">Log in</button>
-                            </div>
-                        </div>
-                    </form>      
-                    <form class="form-item sign-up">
-                        <div class="table">
-                            <div class="table-cell">
-                                <div class="first">
-                                    <input name="telephone" placeholder="Téléphone" type="tel" pattern="0[0-9]([ ]{0,1}[0-9]{2}){4}" required/>
-                                    <input name="nom" placeholder="Nom" type="text" required/>
-                                    <input name="prenom" placeholder="Prénom" type="text" required/>
-                                    <input name="password" placeholder="Mot de passe" type="Password" required/>
-                                    <button class="btn" type="button">Continue</button>
-                                </div>
-                                <div class="last">
-                                    <input name="naissance" placeholder="Date de naissance" type="date" required/>
-                                    <input name="adresse" placeholder="Adresse" type="text" required/>
-                                    <input name="ville" placeholder="Ville" type="text" required/>
-                                    <input name="code_postal" placeholder="Code-postal" type="number" min ="10000" max="99999"  required/>
-                                    <div class="btns">
-                                        <button class="btn back" type="button">Back</button>
-                                        <button class="btn validate sign-up" type="button">Sign up</button>
-                                    </div>              
-                                </div>            
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+      <button class="close btn">Fermer</button>
+      <div class="container">
+          <div class="box"></div>
+          <div class="container-forms">
+              <div class="container-info">
+                  <div class="info-item">
+                      <div class="table">
+                          <div class="table-cell">
+                              <p>
+                                  Déjà inscrit ?
+                              </p>
+                              <div class="btn">
+                                  Se connecter
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="info-item">
+                      <div class="table">
+                          <div class="table-cell">
+                              <p>
+                                  Pas encore inscrit ?
+                              </p>
+                              <div class="btn">
+                                  S'inscrire
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="container-form">
+                  <form class="form-item log-in">
+                      <div class="table">
+                          <div class="table-cell">
+                              <input name="telephone" placeholder="Téléphone" type="tel" pattern="0[0-9]([ ]{0,1}[0-9]{2}){4}" required/>
+                              <input name="password" placeholder="Mot de passe" type="Password" required/>
+                              <button class="btn validate log-in" type="button">Se connecter</button>
+                          </div>
+                      </div>
+                  </form>
+                  <form class="form-item sign-up">
+                      <div class="table">
+                          <div class="table-cell">
+                              <div class="first">
+                                  <input name="telephone" placeholder="Téléphone" type="tel" pattern="0[0-9]([ ]{0,1}[0-9]{2}){4}" required/>
+                                  <input name="nom" placeholder="Nom" type="text" required/>
+                                  <input name="prenom" placeholder="Prénom" type="text" required/>
+                                  <input name="password" placeholder="Mot de passe" type="Password" required/>
+                                  <button class="btn" type="button">Continuer</button>
+                              </div>
+                              <div class="last">
+                                  <input name="naissance" placeholder="Date de naissance" type="date" required/>
+                                  <input name="adresse" placeholder="Adresse" type="text" required/>
+                                  <input name="ville" placeholder="Ville" type="text" required/>
+                                  <input name="code_postal" placeholder="Code-postal" type="number" min ="10000" max="99999"  required/>
+                                  <div class="btns">
+                                      <button class="btn back" type="button">Retour</button>
+                                      <button class="btn validate sign-up" type="button">S'inscrire</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
   </div>
 
   <!------------------------- The Results ------------------------->
 
   <section class="presentation">
-    <h1 class="presentation__title">Survey results</h1>
+    <h1 class="presentation__title">Résultats de votre enquête</h1>
     <p class="presentation__text">
       Les valeurs qui n'était pas renseignées dans la base de données ont été remplacées par 0.
     </p>
   </section>
   <section class="average">
-    <h2 class="average__title">Average score</h2>
+    <h2 class="average__title">La moyenne de vos aliments</h2>
     <img src="img/Nutri-score-B.svg" alt="" class="average-image">
   </section>
   

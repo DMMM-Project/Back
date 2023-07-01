@@ -224,13 +224,20 @@ button {
 
 @media screen and (max-width: 900px)
 {
+
     .list
     {
-        display: none;
+        width: 100%;
+        margin: 32px 0 32px 0;
     }
 
     .forms
     {
         width: 100%;
+        margin: 0;
+    }
+
+    .container-tools{
+        flex-direction: column;
     }
 }

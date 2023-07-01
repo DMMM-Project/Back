@@ -1,5 +1,5 @@
-const BASE_URL = "https://192.168.1.105:8443/api";
-const BASE_URL_FRONT = "https://192.168.1.105:8443";
+const BASE_URL = "https://172.20.10.10:8443/api";
+const BASE_URL_FRONT = "https://172.20.10.10:8443";
 const login = 0;
 const signup = 1;
 
@@ -146,12 +146,16 @@ document.querySelector('.home').addEventListener('click', (event) => {
   goToPage("");
 });
 
-const menuHamburger = document.querySelector(".menu-hamburger")
-const topNav = document.querySelector(".topnav")
+const menuHamburger = document.querySelector(".menu-hamburger");
+const topNav = document.querySelector(".topnav");
+const navItems = document.querySelectorAll(".nav-item");
 
 menuHamburger.addEventListener('click',()=>{
-  topNav.classList.toggle('mobile-menu')
-})
+  topNav.classList.toggle('mobile-menu');
+  navItems.forEach((item) => {
+    item.classList.toggle('mobile-menu');
+  });
+});
 
 /********************************* Results display *********************************/
 
