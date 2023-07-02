@@ -2,14 +2,12 @@
 
 ### Présentation 
 
-Ce projet a été fait pour faire fonctionner le repository `Frontend`, il permet de pouvoir faire fonctionner le site.
-
-C'est un projet purement éducatif fait par des élèves de l'IUT de paris rives-de-seine.
+Ce projet est purement éducatif fait par des élèves de l'IUT de paris rives-de-seine.
 
 ### Lancement du projet
 Pour lancer le projet vous devez avoir Node et effectuer ces commandes.
 
-#### Backend directory
+#### Partie serveur
 1. Installer les dépendances
    `npm install`
    
@@ -34,7 +32,7 @@ Pour lancer le projet vous devez avoir Node et effectuer ces commandes.
 9. Pour lancer le server
    `npm start`
 
-#### Frontend directory
+#### Partie client
 1. Aller sur le site (page d'acceuil) lorsque le serveur est lancé
    `https://localhost:8443`
 
