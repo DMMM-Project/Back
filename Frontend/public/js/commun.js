@@ -1,5 +1,5 @@
-const BASE_URL = "https://172.20.10.10:8443/api";
-const BASE_URL_FRONT = "https://172.20.10.10:8443";
+const BASE_URL = "https://192.168.1.105:8443/api";
+const BASE_URL_FRONT = "https://192.168.1.105:8443";
 const login = 0;
 const signup = 1;
 

@@ -36,7 +36,7 @@ Pour lancer le projet vous devez avoir Node et effectuer ces commandes.
 
 #### Frontend directory
 1. Aller sur le site (page d'acceuil) lorsque le serveur est lancé
-   `http://127.0.0.1:3000`
+   `https://localhost:8443`
 
 ### Informations complémentaires
 
